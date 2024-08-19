@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenless Zone Zero Damage Calculation</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+
+  <body>
+
+  <!-- Navbar Section remember to change the href and the id -->
+
+    <nav id="navbar" class="navbar" >
+      <header class="List">List</header>
+      <div class="scroll">
+        <p class="list_title">Zenless Zone Zero Damage Formula</p>
+        <ul class="nav-ul">
+          <!-- Introduction -->
+          <li><a class="nav-link" href="#Introduction" accesskey="a">Introduction</a></li>
+          <!-- General Damage Formula -->
+          <li><a class="nav-link" href="#General_Damage_Formula" accesskey="b">General Damage Formula</a></li>
+          <!-- Multiplier_Detail -->
+          <li><a class="nav-link" href="#Multiplier_Detail" accesskey="c">Multiplier Detail</a></li>
+          <!-- Base Damage -->
+          <li><a class="nav-link" href="#Base_Damage" accesskey="d">Base Damage</a></li>
+          <!-- Damage Bonus Multiplier -->
+          <li><a class="nav-link" href="#Damage_Bonus_Multiplier" accesskey="e">Damage Bonus Multiplier</a></li>
+          <!-- CRIT Multiplier -->
+          <li><a class="nav-link" href="#CRIT_Multiplier" accesskey="f">CRIT Multiplier</a></li>
+          <!-- DEF Multiplier -->
+          <li><a class="nav-link" href="#DEF_Multiplier" accesskey="g">DEF Multiplier</a></li>
+          <!-- RES Multiplier -->
+          <li><a class="nav-link" href="#RES_Multiplier" accesskey="h">RES Multiplier</a></li>
+          <!-- Damage Taken Multiplier -->
+          <li><a class="nav-link" href="#Damage_Taken_Multiplier" accesskey="i">Damage Taken Multiplier</a></li>
+          <!-- Stunned Multiplier -->
+          <li><a class="nav-link" href="#Stunned_Multiplier" accesskey="j">Stunned Multiplier</a></li>
+          <!-- Anomaly Base Damage -->
+          <li><a class="nav-link" href="#Anomaly_Base_Damage" accesskey="k">Anomaly Base Damage</a></li>
+          <!-- Anomaly Proficency Multiplier -->
+          <li><a class="nav-link" href="#Anomaly_Proficency_Multiplier" accesskey="l">Anomaly Proficency Multiplier</a></li>
+          <!-- Anomaly Level Multiplier -->
+          <li><a class="nav-link" href="#Anomaly_Level_Multiplier" accesskey="m">Anomaly Level Multiplier</a></li>
+          <!-- Other Information -->
+          <li><a class="nav-link" href="#Other_Information" accesskey="n">Other Information</a></li>
+        </ul>
+    </div>
+    </nav>
+    
+    <!-- Intoduction to damage section -->
+
+    <main id="main-doc">
+      <section id="Introduction" class="main-section">
+        <header><h2>Introduction</h2></header>
+        <p><b>Damage</b>, often abbreviated as <b>DMG</b>, is dealt when a character or enemy attacks its target.</p>
+        <p>There are two types of DMG in Zenless Zone Zero, <b>Standard DMG</b> and <b>Attribute Anomaly DMG</b>, which have different methods of calculation.</p>
+      </section>
+      <hr>
+      <h1 id="title">Zenless Zone Zero Damage Calculation</h1>
+
+      <!-- General things abaout damage section -->
+
+      <section id="General_Damage_Formula" class="main-section">
+        <header><h2>General Damage Formula</h2></header>
+            <h3>Standard Damage</h3>
+            <p>Standard DMG is dealt directly by agent skills.</p>
+            <code>
+              DMG<sub>Standard</sub> = Base DMG<sub>Attacker</sub> × DMG Bonus Multiplier<sub>Attacker</sub> × CRIT Multiplier<sub>Attacker</sub> × DEF Multiplier<sub>Target</sub> × RES Multiplier<sub>Target</sub> × DMG Taken Multiplier<sub>Target</sub> × Stunned Multiplier<sub>Target</sub>
+            </code>
+            <header><h3>Attribute Anomaly Damage</h3></header>
+            <p>Attribute Anomaly DMG is dealt when triggering Burn, Shock, Corruption, Shatter, Assault, or Disorder.</p>
+            <code>
+              DMG<sub>Attribute Anomaly</sub> = Anomaly Base DMG<sub>Attacker</sub> × Anomaly Proficiency Multiplier<sub>Attacker</sub> × Anomaly Level Multiplier<sub>Attacker</sub> × DMG Bonus Multiplier<sub>Attacker</sub> × DEF Multiplier<sub>Target</sub> × RES Multiplier<sub>Target</sub> × DMG Taken Multiplier<sub>Target</sub> × Stunned Multiplier<sub>Target</sub>
+            </code>
+      </section>
+      <hr>
+
+      <!-- More specifics things about damage and how its works section -->
+
+      <section id="Multiplier_Detail" class="main-section">
+        <header><h2>Multiplier Detail</h2></header>
+      </section>
+      <section id="Base_Damage" class="main-section">
+        <header><h3>Base Damage</h3></header>
+        <p>The stat that determines Base DMG is always ATK unless otherwise stated.</p>
+        <code>
+          Base Damage = Ability Multiplier × Stat
+        </code>
+      </section>
+      <section id="Damage_Bonus_Multiplier" class="main-section">
+        <header><h3>Damage Bonus Multiplier</h3></header>
+        <p>DMG Bonus may be specific to an Attribute, a type of skill, a type of attack type (e.g. Slash, Strike, Pierce), or other conditions. Different sources of DMG Bonus are calculated additively.</p>
+        <code>
+          DMG Bonus Multiplier = 1 + Total DMG Bonus
+        </code>
+      </section>
+      <section id="CRIT_Multiplier" class="main-section">
+        <header><h3>CRIT Multiplier</h3></header>
+        <code>
+          CRIT Multiplier = 1 + CRIT DMG  if attack scores a CRIT hit
+        </code>
+        <p>or</p>
+        <code>
+          CRIT Multiplier = 1             if otherwise
+        </code>
+        <p>and</p>
+        <code>
+          CRIT Multiplier<sub>Average</sub> = 1 + CRIT Rate × CRIT DMG
+        </code>
+      </section>
+      <section id="DEF_Multiplier" class="main-section">
+        <header><h3>DEF Multiplier</h3></header>
+        <p>Enemy DEF at level 1 is usually between 36 and 60. They have the same growth pattern as the Level Factor.</p>
+        <code>
+          DEF Multiplier = Level Factor<sub>Attacker</sub> / max((DEF<sub>Target</sub> × (1 - PEN Ratio<sub>Attacker</sub>) - PEN<sub>Attacker</sub>),0) + Level Factor <sub>Attacker</sub>
+        </code>
+      </section>
+      <section id="RES_Multiplier" class="main-section">
+        <header><h3>RES Multiplier</h3></header>
+        <code>
+          RES Multiplier = 1 - RES<sub>Target</sub> + RES Reduction<sub>Target</sub> + RES Ignore<sub>Attacker</sub>
+        </code>
+      </section>
+      <section id="Damage_Taken_Multiplier" class="main-section">
+        <header><h3>Damage Taken Multiplier</h3></header>
+        <p>DMG Taken is not to be confused with DMG Bonus. Despite similar in-game wordings, DMG Bonus effects are applied to the attacker, while DMG Taken effects are applied to the target.</p>
+        <code>
+          RES Multiplier = 1 - RES<sub>Target</sub> + RES Reduction<sub>Target</sub> + RES Ignore<sub>Attacker</sub>
+        </code>
+      </section>
+      <section id="Stunned_Multiplier" class="main-section">
+        <header><h3>Stunned Multiplier</h3></header>
+        <p>The Stunned Multiplier varies by enemy, and the value can be seen under the enemy's Daze bar when they are Stunned.</p>
+      </section>
+      <section id="Anomaly_Base_Damage" class="main-section">
+        <header><h3>Anomaly Base Damage</h3></header>
+        <code>
+          Anomaly Base DMG = Anomaly Multiplier × ATK
+        </code>
+        <table id="anomaly_disorder" style="width:100%">
+          <tr>
+            <th>Attribute Anomaly</th>
+            <th>Anomaly Multiplier</th>
+          </tr>
+          <tr>
+            <td>Burn</td>
+            <td>50%</td>
+          </tr>
+          <tr>
+            <td>Shock</td>
+            <td>125%</td>
+          </tr>
+          <tr>
+            <td>Corruption</td>
+            <td>62.5%</td>
+          </tr>
+          <tr>
+            <td>Shatter</td>
+            <td>500%</td>
+          </tr>
+          <tr>
+            <td>Assault</td>
+            <td>713%</td>
+          </tr>
+        </table>
+        <p>Disorder occurs when a new Attribute Anomaly replaces an existing one. The Anomaly Multiplier of Disorder depends on the type of Anomaly that has been replaced as well as the amount of time that has passed (in seconds) since its application.</p>
+        <table id="anomaly_multiplier_disorder" style="width:100%">
+          <tr>
+            <th>Attribute Anomaly</th>
+            <th>Anomaly Multiplier</th>
+          </tr>
+          <tr>
+            <td>Burn</td>
+            <td>
+              450% + floor((10 - Time Passed) × 2) × 50%
+            </td>
+          </tr>
+          <tr>
+            <td>Shock</td>
+            <td>450% + floor(10 - Time Passed) × 125%</td>
+          </tr>
+          <tr>
+            <td>Corruption</td>
+            <td>450% + floor((10 - Time Passed) × 2) × 62.5%</td>
+          </tr>
+          <tr>
+            <td>Shatter</td>
+            <td>450% + floor(10 - Time Passed) × 7.5%</td>
+          </tr>
+          <tr>
+            <td>Assault</td>
+            <td>450% + floor(10 - Time Passed) × 7.5%</td>
+          </tr>
+        </table>
+      </section>
+      <section id="Anomaly_Proficency_Multiplier" class="main-section">
+        <header><h3>Anomaly Proficency Multiplier</h3></header>
+        <code>
+          Anomaly Proficency Multiplier = Anomaly Proficency × 0.01
+        </code>
+      </section>
+      <section id="Anomaly_Level_Multiplier" class="main-section">
+        <header><h3>Anomaly Level Multiplier</h3></header>
+        <p>Anomaly Level Multiplier is truncated to 4 decimal places.</p>
+        <code>
+          Anomaly Level Multiplier = 1 + 1/59 × (level - 1)
+        </code>
+      </section>
+
+      <!-- Lists of website about build and damage explanation -->
+
+      <section id="Other_Information" class="main-section">
+        <header><h3>Other Information</h3></header>
+        <ul class="refference">
+          <li><a href="https://zenless-zone-zero.fandom.com/wiki/Damage">Zenless Zone Zero Wiki</a></li>
+          <li><a href="https://www.miyoushe.com/sr/article/55265618">HoYoLab: Zenless Zone Zero Data Overview by 666bj</a></li>
+          <li><a href="https://mobalytics.gg/blog/zenless-zone-zero/zzz-combat-guide/">Zenless Zone Zero Complete Combat Guide</a></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#main-doc {
+    margin-left: 320px;
+    padding: 20px;
+}
+
+.navbar {
+    display: flex;
+    position: fixed;
+}
+
+.navbar .scroll {
+    position: fixed;
+    width: 320px;
+    height: 100%;
+    background: rgb(27, 27, 27);
+    padding: 10px;
+    color:azure;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.list_title {
+    font-size: 22px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 0px;
+    margin-top: 5px;
+    margin-left: 0;
+}
+
+.navbar .scroll .nav-ul li a {
+    font-size: 18px;
+    text-align: center;
+    padding: 10px;
+    border-top: 2px solid rgb(53, 52, 52);
+    border-bottom: 2px solid rgb(53, 52, 52);
+
+}
+
+.nav-ul li a {
+    color: azure;
+    display: block;
+}
+
+.navbar .scroll ul li:hover {
+    background: azure;
+}
+
+.navbar a:hover {
+    color: rgb(27, 27, 27);
+}
+
+th, td {
+    border:1px solid black;
+}
+
+#anomaly_disorder, #anomaly_multiplier_disorder {
+    text-align: center;
+    padding: 3px;
+}
+
+#main-doc h2 {
+    padding: 20px;
+}
+
+#main-doc h1, h3, p, code, table, #Other_Information > ul {
+    padding: 20px;
+}
+
+h3, p, .refference {
+    margin-left: 30px;
+}
+
+code {
+    display: block;
+    text-align: left;
+    white-space: pre-line;
+    position: relative;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 2;
+    background-color: #f7f7f7;
+    padding: 15px;
+    margin: 10px 10px 10px 50px;
+    border-radius: 5px;
+}
+.refference {
+    text-decoration: underline;
+    text-align: left;
+}
+
+br {
+    padding: 10px;
+}
+
+@media only screen and (max-width: 400px) {
+    #main-doc {
+      margin-left: -10px;
+    }
+  
+    code {
+      margin-left: -20px;
+      width: 100%;
+      padding: 15px;
+      padding-left: 10px;
+      padding-right: 45px;
+      min-width: 233px;
+    }
+  }
